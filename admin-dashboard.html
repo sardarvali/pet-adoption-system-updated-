@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPals - Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation - Same as other pages but with admin highlighted -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="home.html">
+                <i class="fas fa-paw text-primary"></i> PetPals <span class="badge bg-danger">Admin</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="petsDropdown" role="button" data-bs-toggle="dropdown">
+                            Manage Pets
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#pets-section">View All Pets</a></li>
+                            <li><a class="dropdown-item" href="#add-pet-section">Add New Pet</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#users-section">Manage Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#applications-section">Adoption Applications</a>
+                    </li>
+                </ul>
+                
+                <!-- User menu -->
+                <div class="d-flex align-items-center">
+                    <div class="dropdown user-dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                            <img id="userAvatar" src="/api/placeholder/32/32" class="rounded-circle me-2" width="32" height="32" alt="User">
+                            <span id="userName">Admin</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="profile.html">My Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#dashboard-section">
+                                <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#pets-section">
+                                <i class="fas fa-paw me-2"></i> Manage Pets
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#add-pet-section">
+                                <i class="fas fa-plus-circle me-2"></i> Add New Pet
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#users-section">
+                                <i class="fas fa-users me-2"></i> Manage Users
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#applications-section">
+                                <i class="fas fa-file-alt me-2"></i> Applications
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#settings-section">
+                                <i class="fas fa-cog me-2"></i> Settings
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <!-- Dashboard Overview -->
+                <section id="dashboard-section" class="py-4">
+                    <h2>Admin Dashboard</h2>
+                    <div class="row mt-4">
+                        <div class="col-md-4 mb-4">
+                            <div class="card bg-primary text-white">
+                                <div class="card-body">
+                                    <h5 class="card-title">Total Pets</h5>
+                                    <h2 id="totalPets" class="card-text">0</h2>
+                                    <a href="#pets-section" class="text-white">View all pets</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card bg-success text-white">
+                                <div class="card-body">
+                                    <h5 class="card-title">Adopted Pets</h5>
+                                    <h2 id="adoptedPets" class="card-text">0</h2>
+                                    <a href="#pets-section?status=adopted" class="text-white">View adopted</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card bg-info text-white">
+                                <div class="card-body">
+                                    <h5 class="card-title">Pending Applications</h5>
+                                    <h2 id="pendingApplications" class="card-text">0</h2>
+                                    <a href="#applications-section" class="text-white">View applications</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Manage Pets Section -->
+                <section id="pets-section" class="py-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h2>Manage Pets</h2>
+                        <a href="#add-pet-section" class="btn btn-primary">
+                            <i class="fas fa-plus me-1"></i> Add New Pet
+                        </a>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover" id="petsTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Breed</th>
+                                            <th>Age</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Pets will be loaded here via JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Add New Pet Section -->
+                <section id="add-pet-section" class="py-4">
+                    <h2>Add New Pet</h2>
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <form id="addPetForm" enctype="multipart/form-data">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="petName" class="form-label">Pet Name</label>
+                                            <input type="text" class="form-control" id="petName" name="name" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="petType" class="form-label">Pet Type</label>
+                                            <select class="form-select" id="petType" name="type" required>
+                                                <option value="">Select Type</option>
+                                                <option value="dog">Dog</option>
+                                                <option value="cat">Cat</option>
+                                                <option value="bird">Bird</option>
+                                                <option value="rabbit">Rabbit</option>
+                                                <option value="small-animal">Small Animal</option>
+                                                <option value="reptile">Reptile</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="petBreed" class="form-label">Breed</label>
+                                            <input type="text" class="form-control" id="petBreed" name="breed" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="petAge" class="form-label">Age</label>
+                                            <select class="form-select" id="petAge" name="age" required>
+                                                <option value="">Select Age</option>
+                                                <option value="baby">Baby (0-1 year)</option>
+                                                <option value="young">Young (1-3 years)</option>
+                                                <option value="adult">Adult (3-7 years)</option>
+                                                <option value="senior">Senior (7+ years)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="petGender" class="form-label">Gender</label>
+                                            <select class="form-select" id="petGender" name="gender" required>
+                                                <option value="">Select Gender</option>
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="petSize" class="form-label">Size</label>
+                                            <select class="form-select" id="petSize" name="size">
+                                                <option value="">Select Size</option>
+                                                <option value="small">Small</option>
+                                                <option value="medium">Medium</option>
+                                                <option value="large">Large</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="petImage" class="form-label">Pet Image</label>
+                                            <input type="file" class="form-control" id="petImage" name="image" accept="image/*">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="petDescription" class="form-label">Description</label>
+                                            <textarea class="form-control" id="petDescription" name="description" rows="3" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Add Pet</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Manage Users Section -->
+                <section id="users-section" class="py-4">
+                    <h2>Manage Users</h2>
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover" id="usersTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Account Type</th>
+                                            <th>Joined</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Users will be loaded here via JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Adoption Applications Section -->
+                <section id="applications-section" class="py-4">
+                    <h2>Adoption Applications</h2>
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover" id="applicationsTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Pet</th>
+                                            <th>Applicant</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Applications will be loaded here via JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/admin.js"></script>
+</body>
+</html>

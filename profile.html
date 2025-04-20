@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - PetPals</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation with back button -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">PetPals</a>
+            <div class="d-flex">
+                <!-- Admin Dashboard Button in Nav -->
+                <a href="admin-dashboard.html" class="btn btn-danger me-2 d-none admin-only">
+                    <i class="fas fa-user-shield"></i> Admin Dashboard
+                </a>
+                <a href="home.html" class="btn btn-outline-secondary">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="row">
+            <!-- Profile Sidebar -->
+            <div class="col-md-3">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <div class="position-relative mb-3">
+                            <a href="home.html" class="position-absolute top-0 start-0 text-secondary">
+                                <i class="fas fa-arrow-left fa-lg"></i>
+                            </a>
+                            <img id="profileImage" src="images/default-avatar.png" class="rounded-circle" width="150" height="150" alt="Profile Picture">
+                            <label for="imageUpload" class="position-absolute bottom-0 end-0 bg-primary text-white rounded-circle p-2 cursor-pointer">
+                                <i class="fas fa-camera"></i>
+                            </label>
+                            <input type="file" id="imageUpload" class="d-none" accept="image/*">
+                        </div>
+                        <h5 id="profileName">User Name</h5>
+                        <p class="text-muted" id="profileEmail">user@example.com</p>
+                        <div class="mt-3">
+                            <button class="btn btn-outline-primary btn-sm" id="editProfileBtn">
+                                <i class="fas fa-edit"></i> Edit Profile
+                            </button>
+                            <!-- Admin Dashboard Button -->
+                            <a href="admin-dashboard.html" class="btn btn-danger btn-sm mt-2 d-none admin-only">
+                                <i class="fas fa-user-shield"></i> Admin Dashboard
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list-group mt-4 shadow-sm">
+                    <a href="#profile" class="list-group-item list-group-item-action active" data-bs-toggle="list">
+                        <i class="fas fa-user me-2"></i> Profile
+                    </a>
+                    <a href="#applications" class="list-group-item list-group-item-action" data-bs-toggle="list">
+                        <i class="fas fa-file-alt me-2"></i> My Applications
+                    </a>
+                    <a href="#favorites" class="list-group-item list-group-item-action" data-bs-toggle="list">
+                        <i class="fas fa-heart me-2"></i> Favorites
+                    </a>
+                    <a href="#settings" class="list-group-item list-group-item-action" data-bs-toggle="list">
+                        <i class="fas fa-cog me-2"></i> Settings
+                    </a>
+                    <!-- Admin Dashboard Link -->
+                    <a href="admin-dashboard.html" class="list-group-item list-group-item-action d-none admin-only bg-danger text-white">
+                        <i class="fas fa-user-shield me-2"></i> Admin Dashboard
+                    </a>
+                </div>
+            </div>
+
+            <!-- Profile Content -->
+            <div class="col-md-9">
+                <div class="tab-content">
+                    <!-- Profile Tab -->
+                    <div class="tab-pane fade show active" id="profile">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h4 class="card-title mb-4">Personal Information</h4>
+                                <form id="profileForm">
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label">First Name</label>
+                                            <input type="text" class="form-control" id="firstName" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Last Name</label>
+                                            <input type="text" class="form-control" id="lastName" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email" readonly>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Phone</label>
+                                        <input type="tel" class="form-control" id="phone">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Address</label>
+                                        <textarea class="form-control" id="address" rows="3"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Applications Tab -->
+                    <div class="tab-pane fade" id="applications">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h4 class="card-title mb-4">My Adoption Applications</h4>
+                                <div id="applicationsList">
+                                    <!-- Applications will be loaded here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Favorites Tab -->
+                    <div class="tab-pane fade" id="favorites">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h4 class="card-title mb-4">Favorite Pets</h4>
+                                <div class="row" id="favoritesList">
+                                    <!-- Favorites will be loaded here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Settings Tab -->
+                    <div class="tab-pane fade" id="settings">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <h4 class="card-title mb-4">Account Settings</h4>
+                                <form id="settingsForm">
+                                    <div class="mb-3">
+                                        <label class="form-label">Change Password</label>
+                                        <input type="password" class="form-control" id="currentPassword" placeholder="Current Password">
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="password" class="form-control" id="newPassword" placeholder="New Password">
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm New Password">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Update Password</button>
+                                </form>
+
+                                <hr class="my-4">
+
+                                <h5>Notification Preferences</h5>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="emailNotifications">
+                                    <label class="form-check-label" for="emailNotifications">
+                                        Email Notifications
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="smsNotifications">
+                                    <label class="form-check-label" for="smsNotifications">
+                                        SMS Notifications
+                                    </label>
+                                </div>
+
+                                <hr class="my-4">
+
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-danger" id="deleteAccountBtn">Delete Account</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center">
+            <a href="home.html" class="btn btn-outline-secondary mb-3">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+            <p class="text-muted mb-0"> 2023 PetPals. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/profile.js"></script>
+</body>
+</html>

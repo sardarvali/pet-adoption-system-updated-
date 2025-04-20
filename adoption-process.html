@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPals - Adoption Process</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="home.html">
+                <i class="fas fa-paw text-primary"></i> PetPals
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="petsDropdown" role="button" data-bs-toggle="dropdown">
+                            Adopt
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="dogs.html">Dogs</a></li>
+                            <li><a class="dropdown-item" href="cats.html">Cats</a></li>
+                            <li><a class="dropdown-item" href="other-pets.html">Other Pets</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="care-guides.html">Pet Care</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                
+                <!-- User menu - shown when logged in -->
+                <div class="d-flex align-items-center">
+                    <div class="dropdown user-dropdown d-none">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                            <img id="userAvatar" src="/api/placeholder/32/32" class="rounded-circle me-2" width="32" height="32" alt="User">
+                            <span id="userName">User</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="profile.html">My Profile</a></li>
+                            <li><a class="dropdown-item" href="favorites.html">Favorites</a></li>
+                            <li><a class="dropdown-item" href="applications.html">My Applications</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item admin-only" href="admin-dashboard.html">Admin Dashboard</a></li>
+                            <li><hr class="dropdown-divider admin-only"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Login/Signup buttons - shown when logged out -->
+                    <div class="auth-buttons">
+                        <a href="index.html" class="btn btn-outline-primary me-2">Login</a>
+                        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="bg-primary text-white py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="fw-bold">Adoption Process</h1>
+                    <p class="lead">Your step-by-step guide to bringing home your new family member</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-lg-end mb-0">
+                            <li class="breadcrumb-item"><a href="home.html" class="text-white text-decoration-none">Home</a></li>
+                            <li class="breadcrumb-item active text-white-50" aria-current="page">Adoption Process</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Timeline -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <button class="nav-link active mb-3 text-start" id="v-pills-step1-tab" data-bs-toggle="pill" data-bs-target="#v-pills-step1" type="button" role="tab">
+                            <span class="badge bg-primary rounded-circle me-2">1</span> Browse and Select
+                        </button>
+                        <button class="nav-link mb-3 text-start" id="v-pills-step2-tab" data-bs-toggle="pill" data-bs-target="#v-pills-step2" type="button" role="tab">
+                            <span class="badge bg-primary rounded-circle me-2">2</span> Application
+                        </button>
+                        <button class="nav-link mb-3 text-start" id="v-pills-step3-tab" data-bs-toggle="pill" data-bs-target="#v-pills-step3" type="button" role="tab">
+                            <span class="badge bg-primary rounded-circle me-2">3</span> Meet and Greet
+                        </button>
+                        <button class="nav-link mb-3 text-start" id="v-pills-step4-tab" data-bs-toggle="pill" data-bs-target="#v-pills-step4" type="button" role="tab">
+                            <span class="badge bg-primary rounded-circle me-2">4</span> Home Check
+                        </button>
+                        <button class="nav-link mb-3 text-start" id="v-pills-step5-tab" data-bs-toggle="pill" data-bs-target="#v-pills-step5" type="button" role="tab">
+                            <span class="badge bg-primary rounded-circle me-2">5</span> Finalization
+                        </button>
+                        <button class="nav-link text-start" id="v-pills-step6-tab" data-bs-toggle="pill" data-bs-target="#v-pills-step6" type="button" role="tab">
+                            <span class="badge bg-primary rounded-circle me-2">6</span> Bringing Pet Home
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-step1" role="tabpanel">
+                            <div class="card border-0 shadow-sm">
+                                <div class="card-body p-4">
+                                    <h3 class="card-title">Browse and Select a Pet</h3>
+                                    <p class="lead text-muted">The journey begins with finding your perfect match</p>
+                                    <div class="row align-items-center">
+                                        <div class="col-md-6 mb-4 mb-md-0">
+                                            <img src="/api/placeholder/600/400" alt="Browse pets" class="img-fluid rounded">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-4">
+                                                <h5><i class="fas fa-search text-primary me-2"></i> Browse Online</h5>
+                                                <p>Explore our extensive database of pets available for adoption. Filter by species, breed, age, size, and location to find pets that match your lifestyle.</p>
+                                            </div>
+                                            <div class="mb-4">
+                                                <h5><i class="fas fa-heart text-primary me-2"></i> Save Favorites</h5>
+                                                <p>Create an account to save pets you're interested in and receive updates when new pets matching your preferences become available.</p>
+                                            </div>
+                                            <div>
+                                                <h5><i class="fas fa-question-circle text-primary me-2"></i> Ask Questions</h5>
+                                                <p>Contact shelter staff with questions about specific pets before applying. They can provide detailed information about temperament, health, and compatibility.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-step2" role="tabpanel">
+                            <div class="card border-0 shadow-sm">
+                                <div class="card-body p-4">
+                                    <h3 class="card-title">Complete an Application</h3>
+                                    <p class="lead text-muted">Tell us about yourself and your home</p>
+                                    <div class="row align-items-center">
+                                        <div class="col-md-6 mb-4 mb-md-0">
+                                            <img src="/api/placeholder/600/400" alt="Application process" class="img-fluid rounded">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-4">
+                                                <h5><i class="fas fa-file-alt text-primary me-2"></i> Application Form</h5>
+                                                <p>Submit an online application for your chosen pet. The form includes questions about your living situation, experience with pets, and lifestyle to ensure a good match.</p>
+                                            </div>
+                                            <div class="mb-4">
+                                                <h5><i class="fas fa-clock text-primary me-2"></i> Application Review</h5>
+                                                <p>Our team reviews applications within 24-48 hours. You'll receive updates on your application status through your account dashboard.</p>
+                                            </div>
+                                            <div>
+                                                <h5><i class="fas fa-phone text-primary me-2"></i> Initial Interview</h5>
+                                                <p>If your application passes the initial review, we'll contact you for a phone interview to discuss the adoption in more detail.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-step3" role="tabpanel">
+                            <div class="card border-0 shadow-sm">
+                                <div class="card-body p-4">
+                                    <h3 class="card-title">Meet and Greet</h3>
+                                    <p class="lead text-muted">Get to know your potential new family member</p>
+                                    <div class="row align-items-center">
+                                        <div class="col-md-6 mb-4 mb-md-0">
+                                            <img src="/api/placeholder/600/400" alt="Meet and greet" class="img-fluid rounded">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-4">
+                                                <h5><i class="fas fa-calendar-alt text-primary me-2"></i> Schedule a Visit</h5>
+                                                <p>After your application is approved, schedule a time to meet the pet at their shelter or foster home location.</p>
+                                            </div>
+                                            <div class="mb-4">
+                                                <h5><i class="fas fa-users text-primary me-2"></i> Bring Family Members</h5>
+                                                <p>We recommend bringing all household members to ensure everyone connects with the pet. For dog adoptions, bringing resident dogs is often required.</p>
+                                            </div>
+                                            <div>
+                                                <h5><i class="fas fa-paw text-primary me-2"></i> Interaction Time</h5>
+                                                <p>Spend time interacting with the pet to see if their personality and energy level match your expectations. Staff will be available to answer questions and provide guidance.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-step4" role="tabpanel">
+                            <div class="card border-0 shadow-sm">
+                                <div class="card-body p-4">
+                                    <h3 class="card-title">Home Check</h3>
+                                    <p class="lead text-muted">Ensuring your home is ready for a new pet</p>
+                                    <div class="row align-items-center">
+                                        <div class="col-md-6 mb-4 mb-md-0">
+                                            <img src="/api/placeholder/600/400" alt="Home check" class="img-fluid rounded">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-4">
+                                                <h5><i class="fas fa-home text-primary me-2"></i> Virtual or In-Person Check</h5>
+                                                <p>For some adoptions, particularly for certain breeds or special needs pets, a home check may be required. This can often be done virtually through a video call.</p>
+                                            </div>
+                                            <div class="mb-4">
+                                                <h5><i class="fas fa-clipboard-check text-primary me-2"></i> Safety Assessment</h5>
+                                                <p>Our staff will check that your home is safe for the pet, with secure fencing for dogs if applicable, and no obvious hazards.</p>
+                                            </div>
+                                            <div>
+                                                <h5><i class="fas fa-tools text-primary me-2"></i> Preparation Guidance</h5>
+                                                <p>We'll provide guidance on how to prepare your home for your new pet, including recommended supplies and pet-proofing tips.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-step5" role="tabpanel">
+                            <div class="card border-0 shadow-sm">
+                                <div class="card-body p-4">
+                                    <h3 class="card-title">Finalize the Adoption</h3>
+                                    <p class="lead text-muted">Complete paperwork and prepare to welcome your pet</p>
+                                    <div class="row align-items-center">
+                                        <div class="col-md-6 mb-4 mb-md-0">
+                                            <img src="/api/placeholder/600/400" alt="Adoption finalization" class="img-fluid rounded">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-4">
+                                                <h5><i class="fas fa-file-signature text-primary me-2"></i> Adoption Agreement</h5>
+                                                <p>Sign the adoption contract which outlines your responsibilities as a pet owner and our commitment to support you.</p>
+                                            </div>
+                                            <div class="mb-4">
+                                                <h5><i class="fas fa-dollar-sign text-primary me-2"></i> Adoption Fee</h5>
+                                                <p>Pay the adoption fee which helps cover the cost of care, vaccinations, microchipping, and spay/neuter procedures.</p>
+                                            </div>
+                                            <div>
+                                                <h5><i class="fas fa-notes-medical text-primary me-2"></i> Medical Records</h5>
+                                                <p>Receive all medical records, including vaccination history, microchip information, and any special care instructions.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-step6" role="tabpanel">
+                            <div class="card border-0 shadow-sm">
+                                <div class="card-body p-4">
+                                    <h3 class="card-title">Bringing Your Pet Home</h3>
+                                    <p class="lead text-muted">The beginning of your new life together</p>
+                                    <div class="row align-items-center">
+                                        <div class="col-md-6 mb-4 mb-md-0">
+                                            <img src="/api/placeholder/600/400" alt="Pet going home" class="img-fluid rounded">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-4">
+                                                <h5><i class="fas fa-car text-primary me-2"></i> Transportation</h5>
+                                                <p>Bring a secure carrier for small animals and cats. For dogs, bring a proper leash and collar with ID tags.</p>
+                                            </div>
+                                            <div class="mb-4">
+                                                <h5><i class="fas fa-bed text-primary me-2"></i> Settling In</h5>
+                                                <p>Allow your new pet time to adjust to their new environment. We'll provide guidance on introducing them to other pets and family members.</p>
+                                            </div>
+                                            <div>
+                                                <h5><i class="fas fa-hands-helping text-primary me-2"></i> Ongoing Support</h5>
+                                                <p>Our team remains available to answer questions and provide support throughout your pet's life. Follow-up check-ins are scheduled at 2 weeks, 1 month, and 3 months post-adoption.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+            
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="accordion" id="adoptionFAQ">
+                        <div class="accordion-item border-0 mb-3 shadow-sm">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    What are the adoption fees?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#adoptionFAQ">
+                                <div class="accordion-body">
+                                    <p>Adoption fees vary depending on the type and age of the pet:</p>
+                                    <ul>
+                                        <li>Dogs: $150-$350</li>
+                                        <li>Puppies (under 1 year): $250-$450</li>
+                                        <li>Cats: $75-$175</li>
+                                        <li>Kittens (under 1 year): $125-$225</li>
+                                        <li>Small animals: $25-$75</li>
+                                        <li>Birds: $50-$150</li>
+                                    </ul>
+                                    <p>These fees help cover vaccinations, microchipping, spay/neuter procedures, and basic medical care the animal received while in our care.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3 shadow-sm">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    How long does the adoption process take?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#adoptionFAQ">
+                                <div class="accordion-body">
+                                    <p>The adoption process typically takes 3-7 days from application to bringing your pet home. The timeline depends on several factors:</p>
+                                    <ul>
+                                        <li>Application review: 24-48 hours</li>
+                                        <li>Scheduling meet and greet: 1-2 days</li>
+                                        <li>Home check (if required): 1-2 days</li>
+                                        <li>Finalizing paperwork: Same day as final approval</li>
+                                    </ul>
+                                    <p>For some special cases or high-demand pets, the process may take longer. We prioritize finding the right match over speed.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3 shadow-sm">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Can I adopt if I rent my home?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#adoptionFAQ">
+                                <div class="accordion-body">
+                                    <p>Yes, renters can adopt pets! We'll need to verify that your lease allows pets and may request:</p>
+                                    <ul>
+                                        <li>A copy of your lease showing pet policies</li>
+                                        <li>Written permission from your landlord</li>
+                                        <li>Information about pet deposits or fees you've paid</li>
+                                    </ul>
+                                    <p>Many landlords have restrictions on pet type, size, or breed, so please confirm these details before applying for specific pets.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3 shadow-sm">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    What if the adoption doesn't work out?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#adoptionFAQ">
+                                <div class="accordion-body">
+                                    <p>We understand that sometimes, despite best efforts, an adoption may not be the right fit. Our return policy includes:</p>
+                                    <ul>
+                                        <li>14-day trial period during which the full adoption fee is refunded</li>
+                                        <li>30-day partial refund period (50% of adoption fee)</li>
+                                        <li>Lifetime return policy - we will always take our animals back rather than have them rehomed elsewhere</li>
+                                    </ul>
+                                    <p>We also offer post-adoption support including training resources and behavioral counseling to help work through adjustment issues.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 shadow-sm">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    Do you offer adoption assistance programs?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#adoptionFAQ">
+                                <div class="accordion-body">
+                                    <p>Yes, we offer several programs to make adoption more accessible:</p>
+                                    <ul>
+                                        <li>Senior-to-Senior program: Reduced fees for seniors (65+) adopting senior pets (7+ years)</li>
+                                        <li>Veteran adoption program: 25% discount for military veterans</li>
+                                        <li>Special needs pet support: Additional resources and sometimes reduced fees for pets with medical or behavioral needs</li>
+                                        <li>Payment plans: Available on a case-by-case basis</li>
+                                    </ul>
+                                    <p>Contact our adoption counselors to learn more about these programs and determine eligibility.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ready to Adopt CTA -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="mb-4">Ready to Start Your Adoption Journey?</h2>
+            <p class="lead mb-4">Browse our available pets and find your perfect companion today.</p>
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                        <a href="all-pets.html" class="btn btn-light btn-lg px-4">Browse Pets</a>
+                        <a href="contact.html" class="btn btn-outline-light btn-lg px-4">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5><i class="fas fa-paw"></i> PetPals</h5>
+                    <p>Connecting loving homes with pets in need since 2023. Our mission is to make pet adoption simple, humane, and rewarding.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="home.html" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
+                        <li><a href="all-pets.html" class="text-white text-decoration-none">Available Pets</a></li>
+                        <li><a href="care-guides.html" class="text-white text-decoration-none">Pet Care</a></li>
+                        <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5>Adoption</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="dogs.html" class="text-white text-decoration-none">Adopt a Dog</a></li>
+                        <li><a href="cats.html" class="text-white text-decoration-none">Adopt a Cat</a></li>
+                        <li><a href="other-pets.html" class="text-white text-decoration-none">Other Pets</a></li>
+                        <li><a href="adoption-process.html" class="text-white text-decoration-none">Adoption Process</a></li>
+                        <li><a href="success-stories.html" class="text-white text-decoration-none">Success Stories</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5>Contact Us</h5>
+                    <address class="mb-0 text-white-50">
+                        <p><i class="fas fa-map-marker-alt me-2"></i> 123 Adoption Street, City, State 12345</p>
+                        <p><i class="fas fa-phone me-2"></i> (123) 456-7890</p>
+                        <p><i class="fas fa-envelope me-2"></i> info@petpals.com</p>
+                    </address>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6 small">
+                    &copy; 2025 PetPals. All Rights Reserved.
+                </div>
+                <div class="col-md-6 text-md-end small">
+                    <a href="#" class="text-white-50 text-decoration-none me-3">Privacy Policy</a>
+                    <a href="#" class="text-white-50 text-decoration-none">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/home.js"></script>
+
+</body>
+</html>

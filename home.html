@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPals - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="home.html">
+                <i class="fas fa-paw text-primary"></i> PetPals
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="petsDropdown" role="button" data-bs-toggle="dropdown">
+                            Adopt
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="dogs.html">Dogs</a></li>
+                            <li><a class="dropdown-item" href="cats.html">Cats</a></li>
+                            <li><a class="dropdown-item" href="other-pets.html">Other Pets</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="care-guides.html">Pet Care</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                
+                <!-- User menu - shown when logged in -->
+                <div class="d-flex align-items-center">
+                    <div class="dropdown user-dropdown d-none">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                            <img id="userAvatar" src="/api/placeholder/32/32" class="rounded-circle me-2" width="32" height="32" alt="User">
+                            <span id="userName">User</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="profile.html">My Profile</a></li>
+                            <li><a class="dropdown-item" href="applications.html">My Applications</a></li>
+                            <li><hr class="dropdown-divider admin-only"></li>
+                            <li><a class="dropdown-item admin-only" href="admin-dashboard.html">
+                                <i class="fas fa-user-shield me-2"></i>Admin Dashboard
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Login/Signup buttons - shown when logged out -->
+                    <div class="auth-buttons">
+                        <a href="index.html" class="btn btn-outline-primary me-2">Login</a>
+                        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section position-relative">
+        <div class="hero-image" style="background-image: url('https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');">
+            <div class="overlay"></div>
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-md-7 text-white hero-content">
+                        <h1 class="display-4 fw-bold">Find Your Perfect Companion</h1>
+                        <p class="lead">Connecting loving homes with pets in need. Start your adoption journey today.</p>
+                        <div class="mt-4 d-flex align-items-center gap-3">
+                            <a href="dogs.html" class="btn btn-primary btn-lg px-4">Browse Dogs</a>
+                            <a href="cats.html" class="btn btn-light btn-lg px-4">Browse Cats</a>
+                            <img src="/images/paw-print.svg" alt="Paw Print" class="hero-paw-print ms-3" width="60" height="60">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Pets Section -->
+    <section class="featured-pets py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Meet Our Adorable Pets</h2>
+            <div class="row g-4">
+                <!-- Dog Card -->
+                <div class="col-md-4">
+                    <div class="card h-100 pet-card">
+                        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Cute Dog">
+                        <div class="card-body">
+                            <h5 class="card-title">Loving Dogs</h5>
+                            <p class="card-text">Find your perfect canine companion from our selection of friendly, well-cared-for dogs.</p>
+                            <a href="dogs.html" class="btn btn-outline-primary">View Dogs</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cat Card -->
+                <div class="col-md-4">
+                    <div class="card h-100 pet-card">
+                        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Cute Cat">
+                        <div class="card-body">
+                            <h5 class="card-title">Adorable Cats</h5>
+                            <p class="card-text">Discover our charming cats and kittens, each with their own unique personality.</p>
+                            <a href="cats.html" class="btn btn-outline-primary">View Cats</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Other Pets Card -->
+                <div class="col-md-4">
+                    <div class="card h-100 pet-card">
+                        <img src="https://images.unsplash.com/photo-1425082661705-1834bfd09dca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Other Pets">
+                        <div class="card-body">
+                            <h5 class="card-title">Other Pets</h5>
+                            <p class="card-text">Browse our selection of rabbits, birds, and other wonderful pets looking for a home.</p>
+                            <a href="other-pets.html" class="btn btn-outline-primary">View Other Pets</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <div class="card shadow border-0">
+                <div class="card-body p-4">
+                    <h3 class="card-title text-center mb-4">Find Your Perfect Pet</h3>
+                    <form id="petSearchForm">
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <select class="form-select" id="petType">
+                                    <option value="">All Pet Types</option>
+                                    <option value="dog">Dogs</option>
+                                    <option value="cat">Cats</option>
+                                    <option value="bird">Birds</option>
+                                    <option value="small-animal">Small Animals</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-select" id="petAge">
+                                    <option value="">Any Age</option>
+                                    <option value="baby">Baby</option>
+                                    <option value="young">Young</option>
+                                    <option value="adult">Adult</option>
+                                    <option value="senior">Senior</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="location" placeholder="City or Zip Code">
+                            </div>
+                            <div class="col-md-3">
+                                <button type="submit" class="btn btn-primary w-100">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Adopt Section -->
+    <section class="why-adopt bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Why Adopt?</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="text-center">
+                        <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="rounded-circle mb-3" alt="Save a Life" style="width: 150px; height: 150px; object-fit: cover;">
+                        <h4>Save a Life</h4>
+                        <p>Give a deserving pet a second chance at happiness.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center">
+                        <img src="https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="rounded-circle mb-3" alt="Find True Love" style="width: 150px; height: 150px; object-fit: cover;">
+                        <h4>Find True Love</h4>
+                        <p>Experience unconditional love from your new companion.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center">
+                        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="rounded-circle mb-3" alt="Make a Difference" style="width: 150px; height: 150px; object-fit: cover;">
+                        <h4>Make a Difference</h4>
+                        <p>Help create a better world for pets in need.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">How Adoption Works</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="text-center">
+                        <div class="bg-primary text-white rounded-circle mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                            <i class="fas fa-search fa-2x"></i>
+                        </div>
+                        <h4>Browse</h4>
+                        <p class="text-muted">Explore our database of pets from shelters and rescues.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="text-center">
+                        <div class="bg-primary text-white rounded-circle mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                            <i class="fas fa-file-alt fa-2x"></i>
+                        </div>
+                        <h4>Apply</h4>
+                        <p class="text-muted">Submit an adoption application for your chosen pet.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="text-center">
+                        <div class="bg-primary text-white rounded-circle mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                            <i class="fas fa-handshake fa-2x"></i>
+                        </div>
+                        <h4>Meet</h4>
+                        <p class="text-muted">Schedule a meeting with the pet at their shelter location.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="text-center">
+                        <div class="bg-primary text-white rounded-circle mb-3 mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                            <i class="fas fa-home fa-2x"></i>
+                        </div>
+                        <h4>Adopt</h4>
+                        <p class="text-muted">Finalize the adoption and welcome your new family member!</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="adoption-process.html" class="btn btn-outline-primary">Learn More About the Process</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pet Care Section -->
+    <section class="pet-care py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1544568100-847a948585b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pet Care" class="img-fluid rounded-3 shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h2>Expert Pet Care Tips</h2>
+                    <p class="lead mb-4">Learn how to provide the best care for your new companion.</p>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start">
+                                <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Nutrition" class="rounded me-3" style="width: 80px; height: 80px; object-fit: cover;">
+                                <div>
+                                    <h5>Proper Nutrition</h5>
+                                    <p class="text-muted">Guide to healthy feeding habits.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start">
+                                <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Exercise" class="rounded me-3" style="width: 80px; height: 80px; object-fit: cover;">
+                                <div>
+                                    <h5>Exercise & Play</h5>
+                                    <p class="text-muted">Keep your pet active and happy.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start">
+                                <img src="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Health" class="rounded me-3" style="width: 80px; height: 80px; object-fit: cover;">
+                                <div>
+                                    <h5>Health Care</h5>
+                                    <p class="text-muted">Regular check-ups and vaccines.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start">
+                                <img src="https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Training" class="rounded me-3" style="width: 80px; height: 80px; object-fit: cover;">
+                                <div>
+                                    <h5>Training Tips</h5>
+                                    <p class="text-muted">Basic commands and behavior.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="success-stories bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Success Stories</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Happy Dog Story">
+                        <div class="card-body">
+                            <h5 class="card-title">Max's New Family</h5>
+                            <p class="card-text">"Finding Max was the best thing that happened to us. He brings so much joy to our home!"</p>
+                            <p class="text-muted">- The Johnson Family</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Happy Cat Story">
+                        <div class="card-body">
+                            <h5 class="card-title">Luna's Forever Home</h5>
+                            <p class="card-text">"Luna adapted so quickly to our family. She's the perfect companion for quiet evenings."</p>
+                            <p class="text-muted">- Sarah & Mike</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1517451330947-7809dead78d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Happy Pet Story">
+                        <div class="card-body">
+                            <h5 class="card-title">Charlie's Second Chance</h5>
+                            <p class="card-text">"Adopting Charlie was the best decision we ever made. He's brought so much happiness!"</p>
+                            <p class="text-muted">- The Wilson Family</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2>Stay Updated</h2>
+                    <p class="lead">Subscribe to our newsletter for adoption events, pet care tips, and success stories.</p>
+                    <form class="mt-4 row justify-content-center g-3">
+                        <div class="col-md-8">
+                            <input type="email" class="form-control form-control-lg" placeholder="Your email address">
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-light btn-lg w-100">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- About -->
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="https://images.unsplash.com/photo-1553322396-0c9cd410975e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="PetPals Logo" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                        <h5 class="mb-0 text-white">PetPals</h5>
+                    </div>
+                    <p class="text-light">Connecting loving homes with pets in need. Our mission is to help every pet find their perfect family.</p>
+                    <div class="social-links">
+                        <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="text-white mb-3">Quick Links</h5>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled footer-links">
+                                <li class="mb-2"><a href="dogs.html">Dogs</a></li>
+                                <li class="mb-2"><a href="cats.html">Cats</a></li>
+                                <li class="mb-2"><a href="other-pets.html">Other Pets</a></li>
+                                <li class="mb-2"><a href="about.html">About Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled footer-links">
+                                <li class="mb-2"><a href="adoption-process.html">How to Adopt</a></li>
+                                <li class="mb-2"><a href="success-stories.html">Success Stories</a></li>
+                                <li class="mb-2"><a href="volunteer.html">Volunteer</a></li>
+                                <li class="mb-2"><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="col-lg-4">
+                    <h5 class="text-white mb-3">Stay Updated</h5>
+                    <p class="text-light mb-3">Subscribe to our newsletter for pet care tips and adoption updates.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Enter your email" aria-label="Email for newsletter">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                    <div class="mt-4">
+                        <div class="d-flex align-items-center mb-2">
+                            <img src="https://images.unsplash.com/photo-1597633425046-08f5110420b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Pet Care" class="rounded me-2" style="width: 32px; height: 32px; object-fit: cover;">
+                            <p class="text-light mb-0 small">24/7 Pet Care Support</p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1584516150909-c43483ee7932?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Community" class="rounded me-2" style="width: 32px; height: 32px; object-fit: cover;">
+                            <p class="text-light mb-0 small">Join Our Pet Lover Community</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-top border-light mt-4 pt-4 text-center">
+                <p class="mb-0 text-light">&copy; 2025 PetPals. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

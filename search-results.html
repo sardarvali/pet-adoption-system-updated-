@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Pet Adoption & Care</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="home.html">
+                <i class="fas fa-paw text-primary me-2"></i>
+                <span class="fw-bold">PetPals</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="petsDropdown" role="button" data-bs-toggle="dropdown">
+                            Pets
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="dogs.html">Dogs</a></li>
+                            <li><a class="dropdown-item" href="cats.html">Cats</a></li>
+                            <li><a class="dropdown-item" href="other-pets.html">Other Pets</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="care-guides.html">Care Guides</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about-us.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html">
+                            <i class="fas fa-user-circle"></i> Profile
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Results Hero -->
+    <section class="bg-light py-4">
+        <div class="container">
+            <h1 class="text-center mb-4">Search Results</h1>
+            
+            <!-- Search Form -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <form id="searchForm">
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <select id="petType" class="form-select">
+                                    <option value="">Any Pet Type</option>
+                                    <option value="Dog">Dogs</option>
+                                    <option value="Cat">Cats</option>
+                                    <option value="Bird">Birds</option>
+                                    <option value="Rabbit">Rabbits</option>
+                                    <option value="Small Animal">Small Animals</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select id="petAge" class="form-select">
+                                    <option value="">Any Age</option>
+                                    <option value="Baby">Baby</option>
+                                    <option value="Young">Young</option>
+                                    <option value="Adult">Adult</option>
+                                    <option value="Senior">Senior</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" id="location" class="form-control" placeholder="Location">
+                            </div>
+                            <div class="col-md-3">
+                                <button type="submit" class="btn btn-primary w-100">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Filters -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="mb-0">Filters</h5>
+                        <button id="clearFilters" class="btn btn-sm btn-outline-secondary">Clear All</button>
+                    </div>
+                    <div class="row g-2">
+                        <div class="col-md-2 col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter-check" type="checkbox" id="goodWithKids">
+                                <label class="form-check-label small" for="goodWithKids">Good with Kids</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter-check" type="checkbox" id="goodWithDogs">
+                                <label class="form-check-label small" for="goodWithDogs">Good with Dogs</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter-check" type="checkbox" id="goodWithCats">
+                                <label class="form-check-label small" for="goodWithCats">Good with Cats</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter-check" type="checkbox" id="housetrained">
+                                <label class="form-check-label small" for="housetrained">Housetrained</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter-check" type="checkbox" id="specialNeeds">
+                                <label class="form-check-label small" for="specialNeeds">Special Needs</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter-check" type="checkbox" id="vaccinated">
+                                <label class="form-check-label small" for="vaccinated">Vaccinated</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Results Summary -->
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <p class="mb-0" id="resultsCount">Showing <span id="totalResults">0</span> pets</p>
+                <div class="d-flex align-items-center">
+                    <label class="me-2 small">Sort by:</label>
+                    <select id="sortOptions" class="form-select form-select-sm" style="width: auto;">
+                        <option value="recent">Recently Added</option>
+                        <option value="name">Name A-Z</option>
+                        <option value="age_asc">Age: Youngest First</option>
+                        <option value="age_desc">Age: Oldest First</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Results -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row" id="searchResults">
+                <!-- Results will be populated here by JavaScript -->
+                <div class="col-12 text-center py-5" id="loadingIndicator">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-2">Loading pets...</p>
+                </div>
+                
+                <div class="col-12 text-center py-5 d-none" id="noResultsMessage">
+                    <i class="fas fa-search fa-3x text-muted mb-3"></i>
+                    <h3>No pets found</h3>
+                    <p class="text-muted">Try adjusting your search criteria or filters</p>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <nav aria-label="Search results pages" class="mt-4">
+                <ul class="pagination justify-content-center" id="pagination">
+                    <!-- Pagination will be populated by JavaScript -->
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="mb-3">PetPals</h5>
+                    <p class="mb-3">Connecting loving homes with pets in need since 2023. Our mission is to promote responsible pet ownership and find forever homes for all animals.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="home.html" class="text-white text-decoration-none mb-2 d-inline-block">Home</a></li>
+                        <li><a href="about-us.html" class="text-white text-decoration-none mb-2 d-inline-block">About Us</a></li>
+                        <li><a href="dogs.html" class="text-white text-decoration-none mb-2 d-inline-block">Dogs</a></li>
+                        <li><a href="cats.html" class="text-white text-decoration-none mb-2 d-inline-block">Cats</a></li>
+                        <li><a href="care-guides.html" class="text-white text-decoration-none mb-2 d-inline-block">Care Guides</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="mb-3">Contact Info</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 123 Adoption St, Pet City</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> (123) 456-7890</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@petpals.com</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="mb-3">Newsletter</h5>
+                    <p class="mb-3">Subscribe to get updates on new pets and care tips.</p>
+                    <form id="footerNewsletterForm">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Email address" required>
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 PetPals. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">
+                        <a href="#" class="text-white text-decoration-none me-3">Privacy Policy</a>
+                        <a href="#" class="text-white text-decoration-none">Terms of Service</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase Scripts -->
+    <    <script src="./js/home.js"></script>
+
+    <script src="js/search-results.js"></script>
+</body>
+</html>

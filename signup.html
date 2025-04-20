@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPals - Sign Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-light">
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card shadow-lg">
+                    <div class="card-body p-5">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-paw fa-3x text-primary"></i>
+                            <h2 class="mt-2">Create Account</h2>
+                            <p class="text-muted">Join our pet-loving community</p>
+                        </div>
+                        
+                        <form id="signupForm">
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="fullName" name="fullName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                                <div class="form-text">Password must be at least 8 characters long</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirmPassword" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label d-block">Account Type</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="accountType" id="adopter" value="adopter" checked>
+                                    <label class="form-check-label" for="adopter">Pet Adopter</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="accountType" id="shelter" value="shelter">
+                                    <label class="form-check-label" for="shelter">Shelter/Rescue</label>
+                                </div>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="termsCheck" required>
+                                <label class="form-check-label" for="termsCheck">I agree to the <a href="#" class="text-decoration-none">Terms & Conditions</a></label>
+                            </div>
+                            
+                            <!-- Admin Registration Section -->
+                            <div class="mb-3" id="adminSecretContainer" style="display: none;">
+                                <label for="adminSecret" class="form-label">Admin Secret Key</label>
+                                <input type="password" class="form-control" id="adminSecret" name="adminSecret">
+                                <div class="form-text">Contact system administrator for this key</div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <button type="button" class="btn btn-outline-secondary" id="toggleAdmin">
+                                    <i class="fas fa-user-shield me-1"></i> Register as Admin
+                                </button>
+                            </div>
+                            
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">Create Account</button>
+                            </div>
+                        </form>
+                        
+                        <hr class="my-4">
+                        
+                        <div class="text-center">
+                            <p>Already have an account? <a href="/login" class="text-decoration-none">Login</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Toggle admin secret field visibility
+        document.getElementById('toggleAdmin').addEventListener('click', function() {
+            const container = document.getElementById('adminSecretContainer');
+            const isAdminMode = container.style.display === 'none';
+            
+            container.style.display = isAdminMode ? 'block' : 'none';
+            
+            // Update button text and icon based on mode
+            if (isAdminMode) {
+                this.innerHTML = '<i class="fas fa-user me-1"></i> Register as Regular User';
+                this.classList.remove('btn-outline-secondary');
+                this.classList.add('btn-outline-primary');
+            } else {
+                this.innerHTML = '<i class="fas fa-user-shield me-1"></i> Register as Admin';
+                this.classList.remove('btn-outline-primary');
+                this.classList.add('btn-outline-secondary');
+            }
+        });
+
+        // Form submission handler
+        document.getElementById('signupForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const accountType = document.querySelector('input[name="accountType"]:checked').value;
+            const adminSecret = document.getElementById('adminSecret').value;
+            const isAdminMode = document.getElementById('adminSecretContainer').style.display !== 'none';
+            
+            // Validation
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            if (password.length < 8) {
+                alert('Password must be at least 8 characters long!');
+                return;
+            }
+            
+            if (isAdminMode && !adminSecret) {
+                alert('Please enter the admin secret key');
+                return;
+            }
+            
+            try {
+                const response = await fetch('/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        fullName,
+                        email,
+                        password,
+                        accountType,
+                        adminSecret: isAdminMode ? adminSecret : null
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    alert(data.message);
+                    window.location.href = data.redirect;
+                } else {
+                    alert(data.message || 'Registration failed');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred during registration');
+            }
+        });
+    </script>
+</body>
+</html>

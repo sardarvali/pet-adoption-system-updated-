@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPals - About Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="home.html">
+                <i class="fas fa-paw text-primary"></i> PetPals
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="petsDropdown" role="button" data-bs-toggle="dropdown">
+                            Adopt
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="dogs.html">Dogs</a></li>
+                            <li><a class="dropdown-item" href="cats.html">Cats</a></li>
+                            <li><a class="dropdown-item" href="other-pets.html">Other Pets</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="care-guides.html">Pet Care</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                
+                <!-- User menu - shown when logged in -->
+                <div class="d-flex align-items-center">
+                    <div class="dropdown user-dropdown d-none">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                            <img id="userAvatar" src="/api/placeholder/32/32" class="rounded-circle me-2" width="32" height="32" alt="User">
+                            <span id="userName">User</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="profile.html">My Profile</a></li>
+                            <li><a class="dropdown-item" href="favorites.html">Favorites</a></li>
+                            <li><a class="dropdown-item" href="applications.html">My Applications</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item admin-only" href="admin-dashboard.html">Admin Dashboard</a></li>
+                            <li><hr class="dropdown-divider admin-only"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Login/Signup buttons - shown when logged out -->
+                    <div class="auth-buttons">
+                        <a href="index.html" class="btn btn-outline-primary me-2">Login</a>
+                        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1527526029430-319f10814151?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="About PetPals" class="img-fluid rounded-3 shadow-lg">
+                </div>
+                <div class="col-lg-6">
+                    <h1 class="display-4 mb-4">About PetPals</h1>
+                    <p class="lead mb-4">We're dedicated to connecting loving homes with pets in need, making the adoption process simple and rewarding.</p>
+                    <div class="row g-4 mt-2">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Happy Pets" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                                <div>
+                                    <h4 class="h5 mb-1">1000+</h4>
+                                    <p class="text-muted mb-0">Pets Adopted</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Happy Families" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                                <div>
+                                    <h4 class="h5 mb-1">800+</h4>
+                                    <p class="text-muted mb-0">Happy Families</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Mission -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4">Our Mission</h2>
+                    <p class="lead">To create a world where every pet has a loving home and every family can experience the joy of pet companionship.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Rescue">
+                        <div class="card-body text-center">
+                            <h4 class="h5 mb-3">Rescue & Rehabilitate</h4>
+                            <p class="text-muted">We work with local shelters to rescue and care for pets in need.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1577175889968-f551f5944abd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Match">
+                        <div class="card-body text-center">
+                            <h4 class="h5 mb-3">Perfect Matches</h4>
+                            <p class="text-muted">We help find the perfect pet for your family and lifestyle.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1560743641-3914f2c45636?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Support">
+                        <div class="card-body text-center">
+                            <h4 class="h5 mb-3">Ongoing Support</h4>
+                            <p class="text-muted">We provide continuous support throughout your adoption journey.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Meet Our Team</h2>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card border-0 shadow-sm text-center h-100">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Sarah Johnson">
+                        <div class="card-body">
+                            <h5 class="card-title">Sarah Johnson</h5>
+                            <p class="text-muted">Founder & CEO</p>
+                            <p class="card-text">Passionate about creating a better world for pets.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card border-0 shadow-sm text-center h-100">
+                        <img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Michael Chen">
+                        <div class="card-body">
+                            <h5 class="card-title">Michael Chen</h5>
+                            <p class="text-muted">Head Veterinarian</p>
+                            <p class="card-text">Ensuring the health and happiness of our pets.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card border-0 shadow-sm text-center h-100">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Emma Davis">
+                        <div class="card-body">
+                            <h5 class="card-title">Emma Davis</h5>
+                            <p class="text-muted">Adoption Coordinator</p>
+                            <p class="card-text">Making perfect matches between pets and families.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card border-0 shadow-sm text-center h-100">
+                        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="David Wilson">
+                        <div class="card-body">
+                            <h5 class="card-title">David Wilson</h5>
+                            <p class="text-muted">Pet Trainer</p>
+                            <p class="card-text">Expert in pet behavior and training.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1601758282760-b6cc3d07523d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="img-fluid rounded-3 shadow" alt="Our Impact">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Our Impact</h2>
+                    <div class="mb-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Success Stories" class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                            <div>
+                                <h5 class="mb-1">Success Stories</h5>
+                                <p class="text-muted mb-0">Over 1000 successful adoptions and counting</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://images.unsplash.com/photo-1593871075120-982e042088d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Community Support" class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                            <div>
+                                <h5 class="mb-1">Community Support</h5>
+                                <p class="text-muted mb-0">Strong network of volunteers and supporters</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Pet Care" class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                            <div>
+                                <h5 class="mb-1">Pet Care Education</h5>
+                                <p class="text-muted mb-0">Comprehensive resources for pet parents</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Partners</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-6 col-md-3 text-center">
+                            <img src="/api/placeholder/150/80" alt="Partner Logo" class="img-fluid grayscale">
+                        </div>
+                        <div class="col-6 col-md-3 text-center">
+                            <img src="/api/placeholder/150/80" alt="Partner Logo" class="img-fluid grayscale">
+                        </div>
+                        <div class="col-6 col-md-3 text-center">
+                            <img src="/api/placeholder/150/80" alt="Partner Logo" class="img-fluid grayscale">
+                        </div>
+                        <div class="col-6 col-md-3 text-center">
+                            <img src="/api/placeholder/150/80" alt="Partner Logo" class="img-fluid grayscale">
+                        </div>
+                        <div class="col-6 col-md-3 text-center">
+                            <img src="/api/placeholder/150/80" alt="Partner Logo" class="img-fluid grayscale">
+                        </div>
+                        <div class="col-6 col-md-3 text-center">
+                            <img src="/api/placeholder/150/80" alt="Partner Logo" class="img-fluid grayscale">
+                        </div>
+                        <div class="col-6 col-md-3 text-center">
+                            <img src="/api/placeholder/150/80" alt="Partner Logo" class="img-fluid grayscale">
+                        </div>
+                        <div class="col-6 col-md-3 text-center">
+                            <img src="/api/placeholder/150/80" alt="Partner Logo" class="img-fluid grayscale">
+                        </div>
+                    </div>
+                    <div class="text-center mt-5">
+                        <a href="contact.html" class="btn btn-primary">Become a Partner</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5><i class="fas fa-paw"></i> PetPals</h5>
+                    <p>Connecting loving homes with pets in need since 2023. Our mission is to make pet adoption simple, humane, and rewarding.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="home.html" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
+                        <li><a href="all-pets.html" class="text-white text-decoration-none">Available Pets</a></li>
+                        <li><a href="care-guides.html" class="text-white text-decoration-none">Pet Care</a></li>
+                        <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5>Adoption</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="dogs.html" class="text-white text-decoration-none">Adopt a Dog</a></li>
+                        <li><a href="cats.html" class="text-white text-decoration-none">Adopt a Cat</a></li>
+                        <li><a href="other-pets.html" class="text-white text-decoration-none">Other Pets</a></li>
+                        <li><a href="adoption-process.html" class="text-white text-decoration-none">Adoption Process</a></li>
+                        <li><a href="success-stories.html" class="text-white text-decoration-none">Success Stories</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5>Contact Us</h5>
+                    <address class="mb-0 text-white-50">
+                        <p><i class="fas fa-map-marker-alt me-2"></i> 123 Adoption Street, City, State 12345</p>
+                        <p><i class="fas fa-phone me-2"></i> (123) 456-7890</p>
+                        <p><i class="fas fa-envelope me-2"></i> info@petpals.com</p>
+                    </address>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6 small">
+                    &copy; 2025 PetPals. All Rights Reserved.
+                </div>
+                <div class="col-md-6 text-md-end small">
+                    <a href="#" class="text-white-50 text-decoration-none me-3">Privacy Policy</a>
+                    <a href="#" class="text-white-50 text-decoration-none">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/home.js"></script>
+
+</body>
+</html>

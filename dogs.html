@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPals - Dogs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Old Navigation -->
+    <div class="container-fluid bg-dark text-white py-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-phone me-2"></i>Call us: +1234567890
+                        <span class="mx-3">|</span>
+                        <i class="fas fa-envelope me-2"></i>Email: info@petpals.com
+                    </p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="home.html">
+                <i class="fas fa-paw text-primary"></i> PetPals
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="petsDropdown" role="button" data-bs-toggle="dropdown">
+                            Adopt
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="dogs.html">Dogs</a></li>
+                            <li><a class="dropdown-item" href="cats.html">Cats</a></li>
+                            <li><a class="dropdown-item active" href="other-pets.html">Other Pets</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="care-guides.html">Pet Care</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                
+                <!-- User menu - shown when logged in -->
+                <div class="d-flex align-items-center">
+                    <div class="dropdown user-dropdown d-none">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                            <img id="userAvatar" src="/api/placeholder/32/32" class="rounded-circle me-2" width="32" height="32" alt="User">
+                            <span id="userName">User</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user me-2"></i>Profile</a></li>
+                            <li><a class="dropdown-item" href="favorites.html"><i class="fas fa-heart me-2"></i>Favorites</a></li>
+                            <li><a class="dropdown-item" href="applications.html"><i class="fas fa-file-alt me-2"></i>Applications</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutButton"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                        </ul>
+                    </div>
+                    <div class="auth-buttons">
+                        <a href="login.html" class="btn btn-outline-primary me-2">Login</a>
+                        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section position-relative overflow-hidden">
+        <div class="hero-image position-absolute w-100 h-100" style="background: url('https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center; background-size: cover;">
+            <div class="overlay position-absolute w-100 h-100" style="background: rgba(0,0,0,0.5);"></div>
+        </div>
+        <div class="container position-relative py-5 text-white" style="z-index: 1;">
+            <div class="row min-vh-75 align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-3 fw-bold mb-4 text-shadow">Find Your Perfect Dog</h1>
+                    <p class="lead mb-4 text-shadow">Give a loving home to our canine friends waiting for their forever family.</p>
+                    <div class="d-flex align-items-center bg-white p-3 rounded-3 shadow-sm" style="max-width: 400px;">
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Happy Dog" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                        <div class="text-dark">
+                            <h5 class="mb-1">Ready for Adoption</h5>
+                            <p class="mb-0 text-muted">Find your companion today</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="py-4 bg-white border-bottom">
+        <div class="container">
+            <form id="dogFilterForm" class="row g-3">
+                <div class="col-md-3">
+                    <select class="form-select" id="breedFilter">
+                        <option value="">All Breeds</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <select class="form-select" id="ageFilter">
+                        <option value="">Any Age</option>
+                        <option value="puppy">Puppy</option>
+                        <option value="young">Young</option>
+                        <option value="adult">Adult</option>
+                        <option value="senior">Senior</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <select class="form-select" id="genderFilter">
+                        <option value="">Any Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-primary w-100">Apply Filters</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Available Dogs Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Available Dogs</h2>
+            <div class="row g-4" id="dogsList">
+                <!-- Dogs will be loaded dynamically -->
+            </div>
+            <!-- Pagination -->
+            <div class="mt-5" id="pagination"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- About -->
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="https://images.unsplash.com/photo-1553322396-0c9cd410975e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="PetPals Logo" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                        <h5 class="mb-0 text-white">PetPals</h5>
+                    </div>
+                    <p class="text-light">Connecting loving homes with pets in need. Our mission is to help every pet find their perfect family.</p>
+                    <div class="social-links">
+                        <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="text-white mb-3">Quick Links</h5>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled footer-links">
+                                <li class="mb-2"><a href="dogs.html">Dogs</a></li>
+                                <li class="mb-2"><a href="cats.html">Cats</a></li>
+                                <li class="mb-2"><a href="other-pets.html">Other Pets</a></li>
+                                <li class="mb-2"><a href="about.html">About Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled footer-links">
+                                <li class="mb-2"><a href="adoption-process.html">How to Adopt</a></li>
+                                <li class="mb-2"><a href="success-stories.html">Success Stories</a></li>
+                                <li class="mb-2"><a href="volunteer.html">Volunteer</a></li>
+                                <li class="mb-2"><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="col-lg-4">
+                    <h5 class="text-white mb-3">Stay Updated</h5>
+                    <p class="text-light mb-3">Subscribe to our newsletter for pet care tips and adoption updates.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Enter your email" aria-label="Email for newsletter">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                    <div class="mt-4">
+                        <div class="d-flex align-items-center mb-2">
+                            <img src="https://images.unsplash.com/photo-1597633425046-08f5110420b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Pet Care" class="rounded me-2" style="width: 32px; height: 32px; object-fit: cover;">
+                            <p class="text-light mb-0 small">24/7 Pet Care Support</p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1584516150909-c43483ee7932?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Community" class="rounded me-2" style="width: 32px; height: 32px; object-fit: cover;">
+                            <p class="text-light mb-0 small">Join Our Pet Lover Community</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-top border-light mt-4 pt-4 text-center">
+                <p class="mb-0 text-light">&copy; 2025 PetPals. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dogs.js"></script>
+</body>
+</html>
