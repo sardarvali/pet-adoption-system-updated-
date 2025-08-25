@@ -1,4 +1,4 @@
-name: Node.js CI/CD
+name: Node.js CI/CD 2
 
 on:
   push:
@@ -42,9 +42,7 @@ jobs:
         cache: 'npm'
     
     - name: Install dependencies
-      run: |
-        - npm install
-        - npm ci
+      run: npm ci
       
     - name: Run linter
       run: npm run lint
